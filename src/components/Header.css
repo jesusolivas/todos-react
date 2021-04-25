@@ -1,0 +1,11 @@
+.header {
+    width: 100%;
+    background: var(--off-red);
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 0.7rem;
+    font-size: var(--font-size-large);
+    box-shadow: 0 1px 1px 0px #898989;
+}
