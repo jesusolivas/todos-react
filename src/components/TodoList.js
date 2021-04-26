@@ -26,7 +26,7 @@ const todos = [
 const TodoList = () => (
     <div className="list">
         <div className="list__headers">
-            <div className="list__header">DESCRIPTION</div>
+            <div className="list__header">TASK</div>
             <div className="list__header">DUE DATE</div>
             <div className="list__header">STATUS</div>
         </div>

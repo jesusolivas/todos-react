@@ -3,9 +3,9 @@ import "./TodoItem.css";
 
 const TodoItem = ({ description, dueDate, status }) => (
     <div className="todo-item">
-        <div>{description}</div>
-        <div>{dueDate}</div>
-        <div>{status}</div>
+        <div className="todo-item__property">{description + description + description + description}</div>
+        <div className="todo-item__property">{dueDate}</div>
+        <div className="todo-item__property">{status}</div>
     </div>
 );
 

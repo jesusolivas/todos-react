@@ -1,5 +1,4 @@
 .list {
-    margin-top: 25px;
     border: 2px solid var(--gray);
     width: 50rem;
     font-size: var(--font-size-medium);
@@ -8,11 +7,18 @@
 .list__headers {
     background: var(--off-white);
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
     padding: 10px;
     border-bottom: 2px solid var(--gray);
 }
 
 .list__header {
     font-weight: bold;
+}
+
+@media (min-width: 45rem) {
+    .list__headers {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
 }

@@ -1,10 +1,23 @@
 .todo-item {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
     padding: 5px 10px;
 }
 
 .todo-item:hover {
     background: var(--off-gray);
     cursor: pointer;
+}
+
+.todo-item__property {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (min-width: 45rem) {
+    .todo-item {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
 }
