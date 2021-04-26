@@ -4,6 +4,8 @@ html {
 
 :root {
   /* Colors */
+  --gray: #cccccc;
+  --off-gray: #f5f5f5;
   --off-white: #f7f7f7;
   --off-red: #ff5858;
 
