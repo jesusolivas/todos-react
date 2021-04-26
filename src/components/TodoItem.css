@@ -1,0 +1,10 @@
+.todo-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 5px 10px;
+}
+
+.todo-item:hover {
+    background: var(--off-gray);
+    cursor: pointer;
+}
