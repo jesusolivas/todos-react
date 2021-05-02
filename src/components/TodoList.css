@@ -1,6 +1,5 @@
 .list {
     border: 2px solid var(--gray);
-    width: 50rem;
     font-size: var(--font-size-medium);
 }
 

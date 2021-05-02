@@ -1,0 +1,11 @@
+.todos {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+@media (min-width: 45rem) {
+    .todos {
+        width: 50rem;
+    }
+}
