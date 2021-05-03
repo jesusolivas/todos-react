@@ -1,0 +1,17 @@
+.button {
+    background: #6b6b6b;
+    color: white;
+    border: none;
+    padding: var(--s-size);
+    font-size: var(--font-size-large);
+    font-weight: 300;
+    line-height: 1;
+    display: inline-block;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  
+  .button:hover {
+    background: #5a5a5a;
+  }
+  
