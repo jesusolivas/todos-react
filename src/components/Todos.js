@@ -24,9 +24,10 @@ const items = [
     }
 ];
 
+
 const Todos = () => (
     <div className="todos">
-        <TodosSummary count={items.length}/>
+        <TodosSummary count={items.length} />
         <TodoListFilters />
         <TodoList todos={items} />
     </div>
