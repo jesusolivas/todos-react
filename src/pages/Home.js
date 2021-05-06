@@ -5,7 +5,7 @@ import TodosContext from "../context/todos-context";
 import { todosReducer } from "../reducers/todos";
 
 const Home = () => {
-    const [state, dispatch] = useReducer(todosReducer, { todos: [], isLoading: true });
+    const [state, dispatch] = useReducer(todosReducer, { todos: [], isLoading: false });
 
     useEffect(() => {
 
