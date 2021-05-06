@@ -3,11 +3,11 @@ import TodoListFilters from "./TodoListFilters";
 import TodosSummary from "./TodosSummary";
 import "./Todos.css";
 
-const Todos = ({ todos, isLoading }) => (
+const Todos = () => (
     <div className="todos">
-        <TodosSummary count={todos.length} isLoading={isLoading} />
+        <TodosSummary />
         <TodoListFilters />
-        <TodoList todos={todos} />
+        <TodoList />
     </div>
 );
 

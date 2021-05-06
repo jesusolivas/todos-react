@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import TodosContext from "../context/todos-context";
 import TodoItem from "./TodoItem";
 import "./TodoList.css";
 
@@ -11,17 +13,20 @@ const renderListItems = (todos, isLoading) => {
     }
 };
 
-const TodoList = ({ todos, isLoading }) => (
-    <div className="list">
-        <div className="list__headers">
-            <div className="list__header">TODO</div>
-            <div className="list__header">DUE DATE</div>
-            <div className="list__header">STATUS</div>
+const TodoList = () => {
+    const { todos, isLoading } = useContext(TodosContext);
+    return (
+        <div className="list">
+            <div className="list__headers">
+                <div className="list__header">TODO</div>
+                <div className="list__header">DUE DATE</div>
+                <div className="list__header">STATUS</div>
+            </div>
+            <div className="list__body">
+                {renderListItems(todos, isLoading)}
+            </div>
         </div>
-        <div className="list__body">
-            {renderListItems(todos, isLoading)}
-        </div>
-    </div>
-);
+    );
+};
 
 export default TodoList;
