@@ -3,6 +3,14 @@ import TodosContext from "../context/todos-context";
 import TodoItem from "./TodoItem";
 import "./TodoList.css";
 
+const getVisibleTodos = (todos, filter) => {
+    const normalizedFilterDescription = filter.description.trim().toLowerCase();
+    return todos.filter(x => {
+        const normalizedDescription = x.description.trim().toLowerCase();
+        return normalizedFilterDescription === "" || normalizedDescription.startsWith(normalizedFilterDescription) 
+    });
+};
+
 const renderListItems = (todos, isLoading) => {
     if (isLoading) {
         return <p className="centered-text">LOADING...</p>;
@@ -14,7 +22,8 @@ const renderListItems = (todos, isLoading) => {
 };
 
 const TodoList = () => {
-    const { todos, isLoading } = useContext(TodosContext);
+    const { todos, isLoading, filter } = useContext(TodosContext);
+    const visibleTodos = getVisibleTodos(todos, filter);
     return (
         <div className="list">
             <div className="list__headers">
@@ -23,7 +32,7 @@ const TodoList = () => {
                 <div className="list__header">STATUS</div>
             </div>
             <div className="list__body">
-                {renderListItems(todos, isLoading)}
+                {renderListItems(visibleTodos, isLoading)}
             </div>
         </div>
     );

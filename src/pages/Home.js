@@ -1,35 +1,26 @@
 import { useEffect, useReducer } from "react";
 import Todos from "../components/Todos";
-import { database } from "../firebase/firebase";
 import TodosContext from "../context/todos-context";
 import { todosReducer } from "../reducers/todos";
+import { getTodos } from "../actions/todos";
+
+const defaultState = {
+    todos: [],
+    isLoading: false,
+    filter: {
+        description: ""
+    }
+};
 
 const Home = () => {
-    const [state, dispatch] = useReducer(todosReducer, { todos: [], isLoading: false });
+    const [state, dispatch] = useReducer(todosReducer, defaultState);
 
     useEffect(() => {
-
-        // this is declare as an IIFE to deal with the useEffect race conditions
-        (async () => {
-            dispatch({ type: "START_LOADING" });
-
-            const todos = [];
-            const todosSnapshots = await database.ref("todos").once("value");
-
-            todosSnapshots.forEach((snapshot) => {
-                todos.push({
-                    id: snapshot.key,
-                    ...snapshot.val()
-                });
-            });
-
-            dispatch({ type: "FINISHED_LOADING", todos: todos });
-        })();
-
+        getTodos(dispatch);
     }, []);
 
     return (
-        <TodosContext.Provider value={{ ...state }}>
+        <TodosContext.Provider value={{ ...state, dispatch }}>
             <Todos />
         </TodosContext.Provider>
     );

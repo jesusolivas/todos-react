@@ -1,9 +1,28 @@
 const todosReducer = (state, action) => {
     switch (action.type) {
-        case 'START_LOADING':
-            return { ...state, isLoading: true }
-        case 'FINISHED_LOADING':
-            return { ...state, isLoading: false, todos: action.todos }
+        case "START_LOADING":
+            return {
+                ...state,
+                isLoading: true
+            };
+        case "FINISHED_LOADING":
+            return {
+                ...state,
+                isLoading: false
+            };
+        case "SET_TODOS":
+            return {
+                ...state,
+                todos: action.todos
+            };
+        case "SET_DESCRIPTION":
+            return {
+                ...state,
+                filter: {
+                    ...state.filter,
+                    description: action.description
+                }
+            };
         default:
             return state
     }
