@@ -15,7 +15,7 @@ const Header = () => {
             <div></div>
             <div>TODOS APP</div>
             <div>
-                <button className="button" onClick={startLogout.bind(null, dispatch)}>Sign Out</button>
+                <button className="button" onClick={startLogout.bind(null, dispatch)}>Logout</button>
             </div>
         </header>
     );
