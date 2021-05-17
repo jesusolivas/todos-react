@@ -8,11 +8,12 @@ import AppRouter from "./routers/AppRouter";
 import { firebase } from "./firebase/firebase";
 
 const currentUser = firebase.auth().currentUser;
+const isAuthenticated = !!currentUser;
 const authDefaultState = {
-  isAuthenticated: !!currentUser,
-  uid: currentUser.uid,
-  email: currentUser.email,
-  displayName: currentUser.displayName
+  isAuthenticated: isAuthenticated,
+  uid: isAuthenticated ? currentUser.uid : undefined,
+  email: isAuthenticated ? currentUser.email : undefined,
+  displayName: isAuthenticated ? currentUser.displayName : undefined
 };
 
 console.log(authDefaultState);
