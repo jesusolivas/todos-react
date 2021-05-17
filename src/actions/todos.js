@@ -1,3 +1,4 @@
+// Internal dependencies
 import { database } from "../firebase/firebase";
 
 export const startLoading = () => ({
@@ -16,6 +17,11 @@ export const setTodos = (todos = []) => ({
 export const setDescription = (description = "") => ({
     type: "SET_DESCRIPTION",
     description
+});
+
+export const setDueDate = (dueDate = new Date()) => ({
+    type: "SET_DUE_DATE",
+    dueDate
 });
 
 export const getTodos = async (dispatch) => {

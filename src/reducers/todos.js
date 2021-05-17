@@ -23,6 +23,14 @@ const todosReducer = (state, action) => {
                     description: action.description
                 }
             };
+        case "SET_DUE_DATE":
+            return {
+                ...state,
+                filter: {
+                    ...state.filter,
+                    dueDate: action.dueDate
+                }
+            };
         default:
             return state
     }

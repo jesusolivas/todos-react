@@ -1,6 +1,13 @@
+// Third party dependencies
 import { useContext } from "react";
+
+// Internal dependencies
 import TodosContext from "../context/todos-context";
+import { getVisibleTodos } from "../selectors/todos";
+
+// Styles
 import "./TodosSummary.css"
+
 
 const renderSummaryMessage = (count, isLoading) => {
     if (isLoading && count === 0) {
@@ -13,10 +20,11 @@ const renderSummaryMessage = (count, isLoading) => {
 };
 
 const TodosSummary = () => {
-    const { todos, isLoading } = useContext(TodosContext);
+    const { todos, isLoading, filter } = useContext(TodosContext);
+    const visibleTodos = getVisibleTodos(todos, filter);
     return (
         <div className="summary hidden">
-            {renderSummaryMessage(todos.length, isLoading)}
+            {renderSummaryMessage(visibleTodos.length, isLoading)}
         </div>
     );
 };

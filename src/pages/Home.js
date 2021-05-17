@@ -1,4 +1,7 @@
+// Third party dependencies
 import { useEffect, useReducer } from "react";
+
+// Internal dependencies
 import Todos from "../components/Todos";
 import TodosContext from "../context/todos-context";
 import { todosReducer } from "../reducers/todos";
@@ -8,11 +11,13 @@ const defaultState = {
     todos: [],
     isLoading: false,
     filter: {
-        description: ""
+        description: "",
+        dueDate: new Date()
     }
 };
 
 const Home = () => {
+    
     const [state, dispatch] = useReducer(todosReducer, defaultState);
 
     useEffect(() => {

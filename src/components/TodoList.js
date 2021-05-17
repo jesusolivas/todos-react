@@ -1,15 +1,13 @@
+// Third party dependencies
 import { useContext } from "react";
+
+// Internal dependencies
 import TodosContext from "../context/todos-context";
 import TodoItem from "./TodoItem";
-import "./TodoList.css";
+import { getVisibleTodos } from "../selectors/todos";
 
-const getVisibleTodos = (todos, filter) => {
-    const normalizedFilterDescription = filter.description.trim().toLowerCase();
-    return todos.filter(x => {
-        const normalizedDescription = x.description.trim().toLowerCase();
-        return normalizedFilterDescription === "" || normalizedDescription.startsWith(normalizedFilterDescription) 
-    });
-};
+// Styles
+import "./TodoList.css";
 
 const renderListItems = (todos, isLoading) => {
     if (isLoading) {
