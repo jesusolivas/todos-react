@@ -1,13 +1,18 @@
 import { firebase, googleAuthProvider } from "../firebase/firebase";
 
-export const login = () => ({
-    type: 'LOGIN'
+export const login = (user) => ({
+    type: 'LOGIN',
+    user
 });
 
 export const startLogin = async (dispatch) => {
     const auth = await firebase.auth().signInWithPopup(googleAuthProvider);
     if (auth.user && auth.user.uid) {
-        dispatch(login());
+        dispatch(login({
+            uid: auth.user.uid,
+            email: auth.user.email,
+            displayName: auth.user.displayName,
+        }));
     }
 };
 
