@@ -2,7 +2,7 @@
 import { useContext } from "react";
 
 // Internal dependencies
-import TodosContext from "../context/todos-context";
+import TodosContext from "../context/todos";
 import TodoItem from "./TodoItem";
 import { getVisibleTodos } from "../selectors/todos";
 

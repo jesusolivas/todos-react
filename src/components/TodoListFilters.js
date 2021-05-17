@@ -3,7 +3,7 @@ import { useContext } from "react";
 import DatePicker from "react-datepicker";
 
 // Internal dependencies
-import TodosContext from "../context/todos-context";
+import TodosContext from "../context/todos";
 import { Link } from "react-router-dom";
 import { setDescription, setDueDate } from "../actions/todos";
 

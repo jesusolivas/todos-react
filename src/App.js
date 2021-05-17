@@ -1,25 +1,30 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Header from "./components/Header";
-import Container from "./components/Container";
-import Home from "./pages/Home";
-import CreateTodo from "./pages/CreateTodo";
-import NotFound from "./pages/NotFound";
+// Third party dependencies
+import { useReducer } from "react";
 
-function App() {
+// Internal dependencies
+import AuthContext from "./context/auth";
+import { authReducer } from "./reducers/auth";
+import AppRouter from "./routers/AppRouter";
+import { firebase } from "./firebase/firebase";
+
+const currentUser = firebase.auth().currentUser;
+const authDefaultState = {
+  isAuthenticated: !!currentUser,
+  uid: currentUser.uid,
+  email: currentUser.email,
+  displayName: currentUser.displayName
+};
+
+console.log(authDefaultState);
+
+const App = () => {
+  const [state, dispatch] = useReducer(authReducer, authDefaultState);
+
   return (
-    <>
-      <Header />
-      <Container>
-        <BrowserRouter>
-          <Switch>
-            <Route path="/" component={Home} exact={true} />
-            <Route path="/create" component={CreateTodo} />
-            <Route component={NotFound} />
-          </Switch>
-        </BrowserRouter>
-      </Container>
-    </>
-  );
-}
+    <AuthContext.Provider value={{ ...state, dispatch }}>
+      <AppRouter />
+    </AuthContext.Provider>
+  )
+};
 
 export default App;

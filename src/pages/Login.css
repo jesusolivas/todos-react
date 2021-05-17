@@ -1,0 +1,22 @@
+.box-layout {
+    align-items: center;
+    background: url("../background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    width: 100vw;
+}
+
+.box-layout__box {
+    background: rgb(214, 213, 213);
+    border-radius: 3px;
+    padding: var(--l-size) var(--m-size);
+    text-align: center;
+    width: 25rem;
+}
+
+.box-layout__title {
+    margin: 0 0 var(--m-size) 0;
+    line-height: 1;
+}

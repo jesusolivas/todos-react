@@ -3,6 +3,7 @@ import firebase from "firebase/app";
 
 // Add the Firebase products that you want to use
 import "firebase/analytics";
+import "firebase/auth";
 import "firebase/database";
 
 const firebaseConfig = {
@@ -18,7 +19,13 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
+firebase.auth();
 
 const database = firebase.database();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export { database };
+export {
+    firebase,
+    database,
+    googleAuthProvider
+};

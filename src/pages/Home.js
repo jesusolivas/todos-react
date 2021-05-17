@@ -3,7 +3,7 @@ import { useEffect, useReducer } from "react";
 
 // Internal dependencies
 import Todos from "../components/Todos";
-import TodosContext from "../context/todos-context";
+import TodosContext from "../context/todos";
 import { todosReducer } from "../reducers/todos";
 import { getTodos } from "../actions/todos";
 
