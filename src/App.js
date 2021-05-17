@@ -16,8 +16,6 @@ const authDefaultState = {
   displayName: isAuthenticated ? currentUser.displayName : undefined
 };
 
-console.log(authDefaultState);
-
 const App = () => {
   const [state, dispatch] = useReducer(authReducer, authDefaultState);
 

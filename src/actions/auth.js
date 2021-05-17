@@ -2,12 +2,12 @@ import { firebase, googleAuthProvider } from "../firebase/firebase";
 
 export const login = (user) => ({
     type: 'LOGIN',
-    user
+    ...user
 });
 
 export const startLogin = async (dispatch) => {
     const auth = await firebase.auth().signInWithPopup(googleAuthProvider);
-    if (auth.user && auth.user.uid) {
+    if (auth.user) {
         dispatch(login({
             uid: auth.user.uid,
             email: auth.user.email,
