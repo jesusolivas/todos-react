@@ -1,7 +1,7 @@
 .header {
     width: 100%;
     background: var(--off-red);
-    padding: 15px;
+    padding: 10px;
     text-align: center;
     font-weight: bold;
     color: white;
@@ -10,4 +10,5 @@
     box-shadow: 0 1px 1px 0px #898989;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }

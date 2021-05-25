@@ -3,10 +3,10 @@ export const getVisibleTodos = (todos, filter) => {
     return todos.filter(x => {
         const normalizedDescription = x.description.trim().toLowerCase();
         return (normalizedFilterDescription === "" || normalizedDescription.startsWith(normalizedFilterDescription))
-            && filter.dueDate.toLocaleDateString() === x.dueDate;
+            && filter.dueDate.toLocaleDateString() === new Date(x.dueDate).toLocaleDateString();
     });
 };
 
 export const getTodayVisibleTodos = (todos) => {
-    return todos.filter(x => new Date().toLocaleDateString() === x.dueDate);
+    return todos.filter(x => new Date().toLocaleDateString() === new Date(x.dueDate).toLocaleDateString());
 };

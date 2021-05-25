@@ -1,5 +1,7 @@
 const todosReducer = (state, action) => {
     switch (action.type) {
+        case "ADD_TODO":
+            return [...state, action.todo];
         case "START_LOADING":
             return {
                 ...state,
